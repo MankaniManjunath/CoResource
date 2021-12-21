@@ -1,0 +1,54 @@
+{% comment %} {% extends 'base.html' %}
+{% block title %}Knowledge{% endblock title %}
+{% block body %} 
+<div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid">
+                        
+                        <h1 class="mt-4">Covid-19 Diesease Detection</h1>
+                      <br>  
+                        <div class="card mb-4" style="marker-start: 200px;">
+                            <div class="card-body">
+                               <form method="POST" enctype="multipart/form-data" action="predictImage">
+                                {% csrf_token %}
+									<input type="file" name="filePath" id="fileupload"  accept="image/png, image/jpeg" style="margin-left: 300px;">
+									<label for="fileupload" > Select a file to upload</label>
+									<input type="submit" value="Upload" style="width: 100px; height: 40px; background-color: blueviolet;
+									color: white; border-radius: 5px;">
+                                    <h2>The classification of the image is {{predictedLabel}}</h2>
+                                        <img src={{filePathName}} alt='imagename'>
+                                        {{filePathName}}
+								</form>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+            
+
+{% comment %} 
+    <h2>Uplaod Image for Classification</h2>
+
+    
+    <br>
+   
+    <form method="post" enctype="multipart/form-data" action="predictImage">
+  
+ {% csrf_token %}
+ <div class="col-md-4 col-sm-4"><label for="fname">Upload Image File Here:</label> </div> <input name="filePath" type="file"><br><br>
+ <br>
+
+ 
+ <input type="submit" value="Submit" ></div>
+
+ <h2>The classification of the image is {{predictedLabel}}</h2>
+ <img src={{filePathName}} alt='imagename'>
+ {{filePathName}}
+
+</form>
+<br> {% endcomment %}
+
+
+
+{% endblock body%} {% endcomment %}

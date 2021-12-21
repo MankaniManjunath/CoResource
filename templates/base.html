@@ -1,0 +1,111 @@
+
+<!doctype html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <style>
+        html
+{
+	scroll-behavior: smooth;
+}
+
+a:hover{
+  color: black;
+  
+}
+        .bg-dark{background-color:#212529!important}
+
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: 'Open Sans', sans-serif;
+                font-family: 'Roboto', sans-serif;
+                font-family: 'Lato', sans-serif;
+                box-sizing: border-box;
+            }
+
+#backingimage::before{
+  background: url('static/coimage.jpg') no-repeat center center/cover;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  opacity: 0.99;
+  width: 100%;
+  height: 100%;
+}
+
+
+    </style>
+    <title> {% block title %}{% endblock title %} | CoResources</title>
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3 " style="color: blue;">
+        <div class="container-fluid">
+          <a class="navbar-brand pl-10" href="/"><strong>CoResource</strong></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto pr-5 text-capitalize " >
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">Knowledge</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/resources">Resources</a>
+              </li>
+              {% comment %} <li class="nav-item">
+                <a class="nav-link" href="/model">Model</a>
+              </li> {% endcomment %}
+            </ul>
+           
+          </div>
+        </div>
+    </nav>
+    <div class="container">
+  {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>{{ message }}!</strong> 
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+  <div id="backingimage">
+    {% block body %}
+    
+    {% endblock body %}
+  </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <!-- Footer -->
+<footer class="page-footer font-small bg-dark">
+
+	<!-- Copyright -->
+	<div class="footer-copyright text-center py-3" ><strong style="color:white; text-decoration:none;" >© CoResource Team</strong><br>
+	<!-- <strong style="color:white;">For Information Contact:</strong>
+	  
+	  <a href="mailto:manjunathmankani02@gmail.com" style="padding:10px; color:white; text-decoration:none;">Manjunath Mankani</a>
+	<a href="mailto:gagandeepramgiri@gmail.com" style="padding:10px; color:white; text-decoration:none;">Gagandeep Ramgiri</a> -->
+	</div>
+	<!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+  </body>
+</html>
